@@ -24,6 +24,7 @@ function GameList() {
             <ul>
                 {
                     allGamesList.map((x) => {
+                        if (x.hidden) return
                         return <li><Link href={`games/${x.id}`}>{`Jogo: ${x.name}`}</Link></li>
                     })
                 }
