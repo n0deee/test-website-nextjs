@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react"
 import { useRouter } from "next/router"
 
-const router = useRouter()
 
 
 function GameInfo() {
     const [gameName, setGameName] = useState("Carregando...")
     const [gameDescription, setGameDescription] = useState("Carregando...")
+    const router = useRouter()
 
     async function fetchGameName() {
         const res = await fetch(`/api/games/list/${router.query.id}`)
