@@ -5,7 +5,8 @@ var reqCount = 0;
 
 // Handle the requests
 export default function handler(req, res) {
-    console.log(`RequestCount: ${reqCount++}`)
+    console.log(`RequestCount: ${++reqCount}`)
+    
     // Handle GET requests
     if (req.method === 'GET') {
         const gameid = req.query.id
