@@ -16,7 +16,7 @@ function GameList() {
 
     // This run once the component is mounted
     useEffect(() => {
-        fetchGameList();
+        //fetchGameList();
     },[])
 
     return (
@@ -35,7 +35,7 @@ function GameList() {
 
 
 
-export default function HomePage() {
+export default function HomePage(props) {
     return (
         <div>
             <h1>Hello World!</h1>
@@ -44,4 +44,15 @@ export default function HomePage() {
             <GameList />
         </div>
     )
+}
+
+export async function getStaticProps() {
+    const res = await fetch("/api/games/list/all")
+    const gamelist = await res.json()
+
+    return {
+        props: {
+            gamelist
+        }
+    }
 }
