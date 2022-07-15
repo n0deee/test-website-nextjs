@@ -16,8 +16,12 @@ function GameInfo() {
     }
 
     useEffect(() => {
+        // Return if Query Id is undefined
+        if (!router.query.id) return
+
+        // Fetch the current game data
         fetchGameName();
-    }, [])
+    }, [router.query.id])
 
     return (
         <div>
