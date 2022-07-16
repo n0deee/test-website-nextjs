@@ -1,29 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
+import axios from 'axios';
 
 
+async function fetchGameList() {
+    return (await axios.get("http://localhost:3000/api/games/list/all")).data
+}
 
-
-function GameList() {
+function GamesList(props) {
     const [allGamesList, setAllGamesList] = useState([]);
-
-    async function fetchGameList() {
-        const res = await fetch("/api/games/list/all")
-        const data = await res.json()
-        setAllGamesList(data);
-
-    }
-
-    // This run once the component is mounted
-    useEffect(() => {
-        fetchGameList();
-    },[])
 
     return (
         <div>
             <ul>
                 {
-                    allGamesList.map((x) => {
+                    props.gamelist.map((x) => {
                         if (x.hidden) return
                         return <li><Link href={`games/${x.id}`}>{`Jogo: ${x.name}`}</Link></li>
                     })
@@ -35,13 +26,25 @@ function GameList() {
 
 
 
-export default function HomePage() {
+export default function HomePage(props) {
     return (
         <div>
             <h1>Hello World!</h1>
             <p>Esta é apenas uma página MENU de teste. Caso queira ser redirecionado para a página 2 <Link href="/pagina2">cliquei aqui</Link></p>
             <p>Você também pode clicar em qualquer uma dessas páginas dinâmicas:</p>
-            <GameList />
+            <GamesList gamelist={props.gamelist} />
         </div>
     )
+}
+
+export async function getStaticProps() {
+    // Fetch API data with axios
+    const gamelist = await fetchGameList()
+
+    return {
+        props: {
+            gamelist    
+        },
+        revalidate: 60
+    }
 }
