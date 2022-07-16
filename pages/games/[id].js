@@ -36,6 +36,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
     return {
         paths: [
+            // empty for testing
         ],
         fallback: 'blocking' // false or 'blocking'
     };
