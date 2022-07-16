@@ -1,11 +1,28 @@
 {
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "next": "^12.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  
+  "name": "test-website-nextjs",
+  "description": "A test website using Next.js",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n0deee/test-website-nextjs.git"
+  },
+  "author": "n0deee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n0deee/test-website-nextjs/issues"
+  },
+  "homepage": "https://github.com/n0deee/test-website-nextjs#readme"
 }

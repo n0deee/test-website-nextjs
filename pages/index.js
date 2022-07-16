@@ -3,7 +3,9 @@ import Link from 'next/link'
 import axios from 'axios';
 
 
-
+async function fetchGameList() {
+    return (await axios.get("http://localhost:3000/api/games/list/all")).data
+}
 
 function GamesList(props) {
     const [allGamesList, setAllGamesList] = useState([]);
@@ -37,11 +39,12 @@ export default function HomePage(props) {
 
 export async function getStaticProps() {
     // Fetch API data with axios
-    const gamelist = (await axios.get("http://localhost:3000/api/games/list/all")).data
+    const gamelist = await fetchGameList()
 
     return {
         props: {
             gamelist    
-        }
+        },
+        revalidate: 60
     }
 }
