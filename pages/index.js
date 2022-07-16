@@ -39,7 +39,7 @@ export default function HomePage() {
     return (
         <div>
             <h1>Hello World!</h1>
-            <p>Esta é apenas uma página MENU de teste. Caso queira ser redirecionado para a página 2 <Link href="/pagina2">cliquei aqui</Link></p>
+            <p>Esta é apenas uma página MENU de teste. Caso queira ser redirecionado para a página 2 <Link href="/page2">cliquei aqui</Link></p>
             <p>Você também pode clicar em qualquer uma dessas páginas dinâmicas:</p>
             <GameList />
         </div>
