@@ -8,13 +8,12 @@
     "axios": "^0.27.2",
     "next": "^12.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5"
   },
-  
   "name": "test-website-nextjs",
   "description": "A test website using Next.js",
   "version": "1.0.0",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/n0deee/test-website-nextjs.git"

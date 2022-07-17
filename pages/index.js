@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import axios from 'axios';
-//import styles from '../css/gstyle.css'
 
 async function fetchGameList() {
     return (await axios.get("http://localhost:3000/api/games/list/all")).data
@@ -50,7 +49,7 @@ export default function HomePage(props) {
             <GamesList className="textcenter" gamelist={props.gamelist} />
             <style jsx global> {`
             body {
-                background-color: lightgray;
+                background-color: white;
             }
 
             .title {
