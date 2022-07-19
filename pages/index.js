@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import axios from 'axios';
 
+console.log("EED: " + process.env.TZ)
+
 async function fetchGameList() {
     return (await axios.get("http://localhost:3000/api/games/list/all")).data
 }
@@ -10,11 +12,11 @@ function GamesList(props) {
     const [allGamesList, setAllGamesList] = useState([]);
 
     return (
-        <div>
+        <>
             {
                 props.gamelist.map((x) => {
                     if (x.hidden) return
-                    return <a href={`games/${x.id}`}><p className={props.className}>{`Jogo: ${x.name}`}</p></a>
+                    return <><a href={`games/${x.id}`}><p className={props.className}>{`Jogo: ${x.name}`}</p></a></>
                     //<Link href={`games/${x.id}`}>
                 })
             }
@@ -33,7 +35,7 @@ function GamesList(props) {
                    }
                 `}
             </style>
-        </div>
+        </>
     )
 }
 
@@ -41,7 +43,7 @@ function GamesList(props) {
 
 export default function HomePage(props) {
     return (
-        <div className="container">
+        <div>
             <h1 className="title textcenter">Hello World!</h1>
             <p className="textcenter">Esta é apenas uma página MENU de teste. Caso queira ser redirecionado para a página 2 <Link href="/page2">cliquei aqui</Link></p>
             <p className="textcenter">Você também pode clicar em qualquer uma dessas páginas dinâmicas:</p>

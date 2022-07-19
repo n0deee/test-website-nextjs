@@ -8,11 +8,11 @@ async function fetchGameDetails(gameid) {
 
 function GameInfo(props) {
     return (
-        <div>
+        <>
             <h1>Título: {props.gamedetails.name}</h1>
             <h2>Descrição: {props.gamedetails.description}</h2>
             <img src="" />
-        </div>
+        </>
     )
 }
 
