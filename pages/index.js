@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import axios from 'axios';
 
-console.log("EED: " + process.env.TZ)
 
 async function fetchGameList() {
     return (await axios.get("http://localhost:3000/api/games/list/all")).data
